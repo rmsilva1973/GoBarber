@@ -3,7 +3,7 @@ import { parseISO } from 'date-fns';
 import { container } from 'tsyringe';
 import CreateAppointmentService from '@modules/appointments/services/CreateAppointmentService';
 
-export default class AppointmentCotnroller {
+export default class AppointmentController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { provider, date } = request.body;
     const parsedDate = parseISO(date);
