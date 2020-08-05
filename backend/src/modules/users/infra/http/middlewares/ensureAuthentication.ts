@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
 
-interface TokenPayLoad {
+interface ITokenPayLoad {
   iat: number;
   exp: number;
   sub: string;
@@ -21,7 +21,7 @@ export default function ensureAuthenticated(
 
   const [, token] = authHeader.split(' ');
   const decoded = verify(token, authConfig.JWT.secret);
-  const { sub } = <TokenPayLoad>decoded;
+  const { sub } = <ITokenPayLoad>decoded;
   request.user = { id: sub };
   return next();
 }
