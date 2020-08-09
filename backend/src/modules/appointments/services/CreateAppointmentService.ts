@@ -39,6 +39,7 @@ class CreateAppointmentService {
     // E o provider para dizer que há uma colisão de agendamento
     const collidingAppointment = await this.appointmentsRepository.findByDate(
       appointmentDate,
+      provider_id
     );
 
     if (user_id === provider_id) {

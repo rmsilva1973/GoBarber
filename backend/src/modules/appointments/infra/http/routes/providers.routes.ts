@@ -9,7 +9,7 @@ import ProviderMonthAvailabilityController from '@modules/appointments/infra/htt
 const providersRouter = Router();
 const providersController = new ProvidersController();
 const providerDayAvailabilityController = new ProviderDayAvailabilityController();
-const providerMonthAvailabilityControllerntroller = new ProviderMonthAvailabilityController();
+const providerMonthAvailabilityController = new ProviderMonthAvailabilityController();
 
 providersRouter.use(ensureAuthenticated);
 
@@ -23,8 +23,8 @@ providersRouter.get('/:provider_id/day-availability',
 providersRouter.get('/:provider_id/month-availability',
   celebrate({
     [Segments.PARAMS]: {
-      provivder_id: Joi.string().uuid().required()
+      provider_id: Joi.string().uuid().required()
     }
-  }), providerMonthAvailabilityControllerntroller.index);
+  }), providerMonthAvailabilityController.index);
 
 export default providersRouter;
